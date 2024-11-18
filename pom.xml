@@ -12,7 +12,7 @@
 
     <groupId>com.caiths</groupId>
     <artifactId>swift-web</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>swift-web</name>
     <description>Build web applications quickly with SwiftWeb.</description>
     <url>https://github.com/poboll/swift-web</url>
@@ -63,12 +63,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

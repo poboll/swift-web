@@ -28,7 +28,7 @@
     <dependency>
         <groupId>com.caiths</groupId>
         <artifactId>swift-web</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
     </dependency>
    ```
 
@@ -40,10 +40,12 @@
    knife4j:
      config:
        scan-path: com.caiths.demo.controller
-   spring:
-     mvc:
-       path match:
-         matching-strategy: ant_path_matcher
+    spring:
+      profiles:
+        active: dev
+      mvc:
+        path match:
+          matching-strategy: ant_path_matcher
    ```
 
    - 全量配置：
@@ -58,6 +60,8 @@
        description: API document description
        scan-path: com.caiths.demo.controller
    spring:
+     profiles:
+       active: dev
      mvc:
        path match:
          matching-strategy: ant_path_matcher
