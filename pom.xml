@@ -12,7 +12,7 @@
 
     <groupId>com.caiths</groupId>
     <artifactId>swift-web</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <name>swift-web</name>
     <description>Build web applications quickly with SwiftWeb.</description>
     <url>https://github.com/poboll/swift-web</url>
