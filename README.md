@@ -69,6 +69,44 @@ spring:
 
 4. Refresh the dependencies.
 
+## Custom Error Codes 👌
+- By implementing the `Error interface`, you can define your own team’s error handling specifications!
+  Example:
+
+  ```java
+    public enum ErrorCode implements Error {   
+        /**
+         * 状态码
+         */
+        private final int code;
+    
+        /**
+         * 错误信息
+         */
+        private final String message;
+        
+        /**
+         * 成功
+         */
+        SUCCESS(0, "ok"),
+        
+        /**
+         * 请求参数错误
+         */
+        PARAMS_ERROR(40000, "请求参数错误")；
+        
+        @Override
+        public int getCode() {
+            return code;
+        }
+        
+        @Override
+        public String getMessage() {
+            return message;
+        }
+    }
+  ```
+
 ## Why Choose SwiftWeb? 😎
 
 **SwiftWeb simplifies the web development process compared to traditional methods by integrating essential features such as API documentation, error code management, and exception handling right out of the box.**

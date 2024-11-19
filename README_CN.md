@@ -69,6 +69,43 @@
 
  4. 刷新依赖
 
+## 自定义错误码👌
+- 通过实现`Error接口`即的可定义属于自己的团队的错误处理规范！！！
+  示例:
+ ```java
+  public enum ErrorCode implements Error {   
+      /**
+       * 状态码
+       */
+      private final int code;
+  
+      /**
+       * 错误信息
+       */
+      private final String message;
+      
+      /**
+       * 成功
+       */
+      SUCCESS(0, "ok"),
+      
+      /**
+       * 请求参数错误
+       */
+      PARAMS_ERROR(40000, "请求参数错误")；
+      
+      @Override
+      public int getCode() {
+          return code;
+      }
+      
+      @Override
+      public String getMessage() {
+          return message;
+      }
+  }
+ ```
+
 ## 我们的优势😎
 
   **相比传统的创建Web项目，无需整合接口文档，拥有丰富的错误码，灵活的全局异常处理器。**
