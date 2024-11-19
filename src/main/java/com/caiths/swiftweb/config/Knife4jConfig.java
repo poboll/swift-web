@@ -57,7 +57,6 @@ public class Knife4jConfig {
     private String url;
 
     @Bean
-
     public Docket defaultApi2() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(new ApiInfoBuilder()

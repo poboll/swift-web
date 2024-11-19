@@ -28,7 +28,7 @@
     <dependency>
         <groupId>com.caiths</groupId>
         <artifactId>swift-web</artifactId>
-        <version>0.0.2</version>
+        <version>0.0.3</version>
     </dependency>
    ```
 
@@ -71,14 +71,15 @@
 
 ## 自定义错误码👌
 - 通过实现`Error接口`即的可定义属于自己的团队的错误处理规范！！！
+
   示例:
- ```java
-  public enum ErrorCode implements Error {   
+    ```java
+    public enum ErrorCode implements Error {   
       /**
        * 状态码
        */
       private final int code;
-  
+    
       /**
        * 错误信息
        */
@@ -103,8 +104,8 @@
       public String getMessage() {
           return message;
       }
-  }
- ```
+    }
+    ```
 
 ## 我们的优势😎
 

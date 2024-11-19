@@ -7,10 +7,10 @@ import java.io.Serializable;
 /**
  * 通用返回类
  *
- * @param <T>
+ * @param <T> 响应数据的类型，通常用于返回具体的数据对象
  * @author poboll
  * @version: 1.0
- * @description: 基反应
+ * 该类是通用的响应返回类，包含响应码、响应数据和响应消息。
  */
 @Data
 public class BaseResponse<T> implements Serializable {
@@ -33,6 +33,7 @@ public class BaseResponse<T> implements Serializable {
         this(code, data, "");
     }
 
-    public BaseResponse(Error errorCode) { this(errorCode.getCode(), null, errorCode.getMessage());
+    public BaseResponse(Error errorCode) {
+        this(errorCode.getCode(), null, errorCode.getMessage());
     }
 }

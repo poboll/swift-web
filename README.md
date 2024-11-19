@@ -28,7 +28,7 @@ Follow these simple steps to get started with SwiftWeb:
 <dependency>
     <groupId>com.caiths</groupId>
     <artifactId>swift-web</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
 </dependency>
 ```
 
@@ -74,37 +74,37 @@ spring:
   Example:
 
   ```java
-    public enum ErrorCode implements Error {   
-        /**
-         * 状态码
-         */
-        private final int code;
+  public enum ErrorCode implements Error {   
+    /**
+     * 状态码
+     */
+    private final int code;
+
+    /**
+     * 错误信息
+     */
+    private final String message;
     
-        /**
-         * 错误信息
-         */
-        private final String message;
-        
-        /**
-         * 成功
-         */
-        SUCCESS(0, "ok"),
-        
-        /**
-         * 请求参数错误
-         */
-        PARAMS_ERROR(40000, "请求参数错误")；
-        
-        @Override
-        public int getCode() {
-            return code;
-        }
-        
-        @Override
-        public String getMessage() {
-            return message;
-        }
+    /**
+     * 成功
+     */
+    SUCCESS(0, "ok"),
+    
+    /**
+     * 请求参数错误
+     */
+    PARAMS_ERROR(40000, "请求参数错误")；
+    
+    @Override
+    public int getCode() {
+        return code;
     }
+    
+    @Override
+    public String getMessage() {
+        return message;
+    }
+  }
   ```
 
 ## Why Choose SwiftWeb? 😎
