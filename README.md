@@ -27,22 +27,16 @@ Follow these simple steps to get started with SwiftWeb:
     <dependency>
         <groupId>com.caiths</groupId>
         <artifactId>swift-web</artifactId>
-        <version>0.0.4</version>
+        <version>0.0.5</version>
     </dependency>
     ```
 
-3. Configure the application, ensuring that the <span style="color: red">Controller and matching strategy: ant_path_matcher</span> are set:
+3. Configuration information:
 
-- Simplified configuration:
-  
-  ```yml
-  spring:
-    mvc:
-      path match:
-        matching-strategy: ant_path_matcher
-  ```
+  - **💥  Starting from `0.0.5` in the new version, you can use the Knife4j interface documentation, custom error codes, and global exception handlers without any configuration, and you will not feel the presence of EasyWeb**
 
-- Full configuration:
+  - Of course, you can also configure some `personalized` configurations that you need. **The configurations are as follows:**
+
 
   ```yml
   knife4j:

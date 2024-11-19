@@ -12,7 +12,7 @@
 
     <groupId>com.caiths</groupId>
     <artifactId>swift-web</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <name>swift-web</name>
     <description>通过SwiftWeb，轻松构建现代Web应用，自动集成Knife4j接口文档，支持自定义错误码和全局异常处理，极大简化开发流程。</description>
     <url>https://github.com/poboll/swift-web</url>
@@ -60,10 +60,15 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.xiaoymin</groupId>-->
+<!--            <artifactId>knife4j-spring-boot-starter</artifactId>-->
+<!--            <version>3.0.3</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-            <version>3.0.3</version>
+            <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+            <version>4.3.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

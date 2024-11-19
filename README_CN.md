@@ -28,41 +28,33 @@
     <dependency>
         <groupId>com.caiths</groupId>
         <artifactId>swift-web</artifactId>
-        <version>0.0.4</version>
+        <version>0.0.5</version>
     </dependency>
    ```
 
-3. 配置信息：其中<span style="color:red">`Controller和 matching-strategy: ant_path_matcher`</span>必须配置
+3. 配置信息：
 
-- 简略配置：
+- **💥 在新的版本从`0.0.5`开始，您<span style="color:red">无需任何配置</span>即可使用Knife4j接口文档，自定义错误码和全局异常处理器， 您将感觉不到EasyWeb的存在。**
 
-    ```yml
-    spring:
-     mvc:
-       path match:
-         matching-strategy: ant_path_matcher
-    ```
 
-  - 全量配置：
+  - 当然您也可以配置一些您自己需要的`个性化`配置，**配置如下**：
 
-  ```yml
-  knife4j:
-    config:
-      name: Author
-      email: xxx
-      version: API version
-      title: API Documentation
-      description: API documentation description
-      scan-path: com.caiths.demo.controller
-  spring:
-    profiles:
-      active: dev
-    mvc:
-      path-match:
-        matching-strategy: ant_path_matcher
-  ```
+      ```yml
+      knife4j:
+        config:
+          name: Author
+          email: xxx
+          url: xxx
+          version: API version
+          title: API Documentation
+          description: API documentation description
+          scan-path: com.caiths.demo.controller
+      spring:
+        profiles:
+          active: dev
+      ```
 
-    使用时需要在控制层类上加上`@RestController`或`@Controller`注解
+    **使用时需要在控制层类上加上`@RestController`或`@Controller`注解**
 
 4. **示例代码**
 
