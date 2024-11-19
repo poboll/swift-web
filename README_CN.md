@@ -91,6 +91,25 @@
     }
     ```
 
+### 如果您不想使用Knife4j接口文档，仅需配置如下，即可关闭knife4j界面
+ ```yml
+    knife4j:
+      enable: true
+      production: true
+ ```
+### 如果您想接口文档开启身份验证，仅需配置如下
+```
+knife4j:
+  # 开启增强配置
+  enable: true
+  basic:
+    enable: true
+    # 设置自己的Basic认证用户名
+    username: root
+    # 设置自己的Basic认证密码
+    password: 1234
+```
+
 ## 自定义错误码👌
 - 通过实现`Error接口`即的可定义属于自己的团队的错误处理规范！！！
 
