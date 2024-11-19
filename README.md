@@ -23,51 +23,73 @@ Follow these simple steps to get started with SwiftWeb:
 1. Create a SpringBoot project without adding the <span style="color:red">Web dependencies</span>.
 
 2. Add the SwiftWeb dependency coordinates:
-
-```xml
-<dependency>
-    <groupId>com.caiths</groupId>
-    <artifactId>swift-web</artifactId>
-    <version>0.0.3</version>
-</dependency>
-```
+    ```xml
+    <dependency>
+        <groupId>com.caiths</groupId>
+        <artifactId>swift-web</artifactId>
+        <version>0.0.4</version>
+    </dependency>
+    ```
 
 3. Configure the application, ensuring that the <span style="color: red">Controller and matching strategy: ant_path_matcher</span> are set:
 
 - Simplified configuration:
-
-```yml
-knife4j:
-  config:
-    scan-path: com.caiths.demo.controller
-    spring:
-      profiles:
-        active: dev
-      mvc:
-        path match:
-          matching-strategy: ant_path_matcher
-```
+  
+  ```yml
+  spring:
+    mvc:
+      path match:
+        matching-strategy: ant_path_matcher
+  ```
 
 - Full configuration:
 
-```yml
-knife4j:
-  config:
-    name: Author
-    email: xxx
-    version: API version
-    title: API Documentation
-    description: API documentation description
-    scan-path: com.caiths.demo.controller
-spring:
-  profiles:
-  active: dev
-  mvc:
-    path-match:
-      matching-strategy: ant_path_matcher
-```
+  ```yml
+  knife4j:
+    config:
+      name: Author
+      email: xxx
+      version: API version
+      title: API Documentation
+      description: API documentation description
+      scan-path: com.caiths.demo.controller
+  spring:
+    profiles:
+      active: dev
+    mvc:
+      path-match:
+        matching-strategy: ant_path_matcher
+  ```
 
-4. Refresh the dependencies.
+  When using, annotations such as `@RestController ` or ` @Controller ` need to be added to the control layer class
+
+
+4. **Sample code**
+
+    ```java
+    @GetMapping("/getPoisonousChickenSoupNotSetKey")
+    public BaseResponse<PoisonousChickenSoupResponse> getPoisonousChickenSoupNotSetKey() {
+        PoisonousChickenSoupResponse poisonousChickenSoup = null;
+        try {
+            poisonousChickenSoup = apiService.getPoisonousChickenSoup();
+        } catch (BusinessException e) {
+            throw new BusinessException(e.getCode(), e.getMessage());
+        }
+        return ResultUtils.success(poisonousChickenSoup);
+    }
+    ```
+
+5. Response Example：
+
+    ```json
+    {
+      "code": 0,
+      "data": {
+        "text": "The three major human illusions a phone rings, someone knocks at the door, and they like me."
+      },
+      "message": "ok"
+    }
+    ```
 
 ## Custom Error Codes 👌
 - By implementing the `Error interface`, you can define your own team’s error handling specifications!
@@ -76,22 +98,22 @@ spring:
   ```java
   public enum ErrorCode implements Error {   
     /**
-     * 状态码
+     * Status code
      */
     private final int code;
 
     /**
-     * 错误信息
+     * Error message
      */
     private final String message;
     
     /**
-     * 成功
+     * Success
      */
     SUCCESS(0, "ok"),
     
     /**
-     * 请求参数错误
+     * Request parameter error
      */
     PARAMS_ERROR(40000, "请求参数错误")；
     

@@ -28,46 +28,68 @@
     <dependency>
         <groupId>com.caiths</groupId>
         <artifactId>swift-web</artifactId>
-        <version>0.0.3</version>
+        <version>0.0.4</version>
     </dependency>
    ```
 
 3. 配置信息：其中<span style="color:red">`Controller和 matching-strategy: ant_path_matcher`</span>必须配置
 
-   - 简略配置：
+- 简略配置：
 
-   ```yml
-   knife4j:
-     config:
-       scan-path: com.caiths.demo.controller
+    ```yml
     spring:
-      profiles:
-        active: dev
-      mvc:
-        path match:
-          matching-strategy: ant_path_matcher
-   ```
-
-   - 全量配置：
-
-   ```yml
-   knife4j:
-     config:
-       name: Author
-       email: xxx
-       version: API version
-       title: API document
-       description: API document description
-       scan-path: com.caiths.demo.controller
-   spring:
-     profiles:
-       active: dev
      mvc:
        path match:
          matching-strategy: ant_path_matcher
-   ```
+    ```
 
- 4. 刷新依赖
+  - 全量配置：
+
+  ```yml
+  knife4j:
+    config:
+      name: Author
+      email: xxx
+      version: API version
+      title: API Documentation
+      description: API documentation description
+      scan-path: com.caiths.demo.controller
+  spring:
+    profiles:
+      active: dev
+    mvc:
+      path-match:
+        matching-strategy: ant_path_matcher
+  ```
+
+    使用时需要在控制层类上加上`@RestController`或`@Controller`注解
+
+4. **示例代码**
+
+    ```java
+    @GetMapping("/getPoisonousChickenSoupNotSetKey")
+    public BaseResponse<PoisonousChickenSoupResponse> getPoisonousChickenSoupNotSetKey() {
+        PoisonousChickenSoupResponse poisonousChickenSoup = null;
+        try {
+            poisonousChickenSoup = apiService.getPoisonousChickenSoup();
+        } catch (BusinessException e) {
+            throw new BusinessException(e.getCode(), e.getMessage());
+        }
+        return ResultUtils.success(poisonousChickenSoup);
+    }
+    ```
+
+5. 响应示例：
+
+    ```json
+    {
+      "code": 0,
+      "data": {
+        "text": "人类三大错觉—手机响了，有人敲门，他（她）喜欢我。"
+      },
+      "message": "ok"
+    }
+    ```
 
 ## 自定义错误码👌
 - 通过实现`Error接口`即的可定义属于自己的团队的错误处理规范！！！
